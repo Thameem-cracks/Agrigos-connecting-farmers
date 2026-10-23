@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8faf6" />
+    <meta name="description" content="Log in or create your Agrigos farmer profile." />
+    <title>Login or register — Agrigos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./auth.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="Agrigos home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 39V24m0 3C14 27 10 21 10 13c9 0 14 4 14 14Zm0-6c0-10 6-15 15-15 0 9-5 15-15 15Z" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 40h24" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
+          <span>Agrigos<span class="brand-period">.</span></span>
+        </a>
+        <a class="home-link" href="./index.html">← Back to home</a>
+      </header>
+
+      <main class="auth-main">
+        <section class="auth-card" aria-label="Agrigos account">
+          <div class="card-topline"><span class="card-overline">WELCOME TO AGRIGOS</span><span class="leaf-badge" aria-hidden="true">✳</span></div>
+          <div class="mode-tabs" role="tablist" aria-label="Account mode">
+            <button id="tab-register" class="mode-tab active" type="button" role="tab" aria-selected="true" aria-controls="register-panel">Create account</button>
+            <button id="tab-login" class="mode-tab" type="button" role="tab" aria-selected="false" aria-controls="login-panel">Log in</button>
+          </div>
+
+          <div id="register-panel" role="tabpanel" aria-labelledby="tab-register">
+            <div class="form-step" id="step-account">
+              <div class="step-header"><div class="step-count">01 <span>/ 02</span></div><div class="step-line"><span></span></div><span class="step-name">Account details</span></div>
+              <div class="form-heading"><h1>Let’s get growing.</h1></div>
+              <form id="account-form" novalidate>
+                <div class="field"><label for="email">Gmail address</label><div class="input-wrap"><span class="input-icon" aria-hidden="true">✉</span><input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@gmail.com" required /></div><p class="field-error" id="email-error"></p></div>
+                <div class="field"><label for="password">Password</label><div class="input-wrap"><span class="input-icon lock-icon" aria-hidden="true">♙</span><input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" required minlength="8" /><button class="reveal" type="button" data-reveal="password" aria-label="Show password">Show</button></div><div class="password-meter" aria-hidden="true"><span></span><span></span><span></span><span></span></div><p class="field-hint" id="password-hint">Use 8+ characters, including a number and a symbol.</p><p class="field-error" id="password-error"></p></div>
+                <div class="field"><label for="repeat-password">Repeat password</label><div class="input-wrap"><span class="input-icon lock-icon" aria-hidden="true">♙</span><input id="repeat-password" name="repeat-password" type="password" autocomplete="new-password" placeholder="Enter your password again" required /><button class="reveal" type="button" data-reveal="repeat-password" aria-label="Show repeated password">Show</button></div><p class="field-error" id="repeat-password-error"></p></div>
+                <button class="primary-button" type="submit">Continue to your profile <span aria-hidden="true">→</span></button>
+              </form>
+              <p class="form-footnote">By continuing, you agree to be kind, curious, and respectful in the Agrigos community.</p>
+            </div>
+
+            <div class="form-step hidden" id="step-profile">
+              <div class="step-header"><div class="step-count">02 <span>/ 02</span></div><div class="step-line complete"><span></span></div><span class="step-name">Your profile</span></div>
+              <div class="form-heading"><button class="back-link" id="back-to-account" type="button">← Back to account</button><h1>Tell us about you.</h1><p>Tell the community what you want to grow or learn.</p></div>
+              <form id="profile-form" novalidate>
+                <div class="two-col">
+                  <div class="field"><label for="full-name">Your name</label><div class="input-wrap"><input id="full-name" name="full-name" type="text" autocomplete="name" placeholder="Your full name" maxlength="80" required /></div><p class="field-error" id="full-name-error"></p></div>
+                  <div class="field"><label for="farmer-type">Your farming interest</label><div class="input-wrap select-wrap"><select id="farmer-type" name="farmer-type" required><option value="">Select your focus</option><option>Exploring farming</option><option>New farmer</option><option>Crop farming</option><option>Livestock farming</option><option>Mixed farming</option><option>Organic farming</option><option>Horticulture</option><option>Aquaculture</option><option>Other</option></select></div><p class="field-error" id="farmer-type-error"></p></div>
+                </div>
+                <div class="section-label"><span class="section-icon">⌖</span><span>Your location</span><span class="section-subtext">Help us connect you with farmers nearby</span></div>
+                <div class="location-grid">
+                  <div class="field location-picker" id="country-picker"><label for="country">Country</label><div class="input-wrap picker-control"><input id="country" name="country" type="text" placeholder="Choose a country" autocomplete="country-name" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="country-options" readonly required /><button class="picker-toggle" id="country-toggle" type="button" aria-label="Show countries" aria-expanded="false" aria-controls="country-menu">⌄</button></div><div class="picker-menu hidden" id="country-menu"><div class="picker-search"><span aria-hidden="true">⌕</span><input id="country-search" type="search" placeholder="Search all countries…" autocomplete="off" /></div><div class="picker-list" id="country-options" role="listbox" aria-label="Countries"></div></div><p class="field-error" id="country-error"></p></div>
+                  <div class="field location-picker" id="state-picker"><label for="state">State / province</label><div class="input-wrap picker-control"><input id="state" name="state" type="text" placeholder="Choose a country first" autocomplete="address-level1" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="state-options" readonly required disabled /><button class="picker-toggle" id="state-toggle" type="button" aria-label="Show states or provinces" aria-expanded="false" aria-controls="state-menu" disabled>⌄</button></div><div class="picker-menu hidden" id="state-menu"><div class="picker-search"><span aria-hidden="true">⌕</span><input id="state-search" type="search" placeholder="Search states or provinces…" autocomplete="off" /></div><div class="picker-list" id="state-options" role="listbox" aria-label="States and provinces"></div></div><p class="field-hint" id="state-hint">Choose a country to browse its regions.</p><p class="field-error" id="state-error"></p></div>
+                  <div class="field full-width"><label for="district">District / city</label><div class="input-wrap"><input id="district" name="district" type="text" list="district-options" placeholder="Choose or type your district" autocomplete="address-level2" maxlength="100" required /></div><datalist id="district-options"></datalist><p class="field-hint">You can type your own if it isn’t in the list.</p><p class="field-error" id="district-error"></p></div>
+                </div>
+                <div class="field username-field"><label for="username">Create your unique username</label><div class="input-wrap username-wrap"><span class="username-at" aria-hidden="true">@</span><input id="username" name="username" type="text" inputmode="text" autocomplete="username" placeholder="your.name" maxlength="14" required spellcheck="false" autocapitalize="off" /></div><p class="field-hint" id="username-hint">1–14 lowercase letters, numbers, underscores, or dots.</p><p class="field-error" id="username-error"></p></div>
+                <button class="primary-button" type="submit">Create my profile <span aria-hidden="true">→</span></button>
+              </form>
+            </div>
+          </div>
+
+          <div id="login-panel" class="hidden" role="tabpanel" aria-labelledby="tab-login">
+              <div class="form-heading login-heading"><span class="login-eyebrow">GOOD TO SEE YOU AGAIN</span><h1>Welcome back.</h1></div>
+            <form id="login-form" novalidate>
+              <div class="field"><label for="login-email">Gmail address</label><div class="input-wrap"><span class="input-icon" aria-hidden="true">✉</span><input id="login-email" name="login-email" type="email" inputmode="email" autocomplete="email" placeholder="you@gmail.com" required /></div><p class="field-error" id="login-email-error"></p></div>
+              <div class="field"><label for="login-password">Password</label><div class="input-wrap"><span class="input-icon lock-icon" aria-hidden="true">♙</span><input id="login-password" name="login-password" type="password" autocomplete="current-password" placeholder="Enter your password" required /><button class="reveal" type="button" data-reveal="login-password" aria-label="Show password">Show</button></div><p class="field-error" id="login-password-error"></p></div>
+              <button class="primary-button" type="submit">Log in to Agrigos <span aria-hidden="true">→</span></button>
+            </form>
+            <p class="form-footnote">New to Agrigos? <button class="inline-action" id="switch-register" type="button">Create an account</button></p>
+          </div>
+
+          <div class="status-panel hidden" id="status-panel" role="status" aria-live="polite"><div class="status-icon">✓</div><h1 id="status-title"></h1><p id="status-copy"></p><button class="primary-button" id="status-back" type="button">Back to Agrigos <span aria-hidden="true">→</span></button></div>
+        </section>
+      </main>
+      <footer class="site-footer"><span>© <span id="year"></span> Agrigos</span><span>Rooted in community. Open to the world.</span><a href="https://github.com/dr5hn/countries-states-cities-database" target="_blank" rel="noreferrer">Location data attribution</a></footer>
+    </div>
+  </body>
+</html>

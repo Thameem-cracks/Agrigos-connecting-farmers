@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1792655328820,
+      "tag": "0000_organic_azazel",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792679423591,
+      "tag": "0001_aspiring_namor",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1792750000000,
+      "tag": "0002_aly_messages",
+      "breakpoints": true
+    }
+  ]
+}

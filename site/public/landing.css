@@ -1,0 +1,64 @@
+/* The home page is a quiet, centered introduction. */
+.site-header { margin-bottom: 26px; }
+.main-layout { display: block; }
+.story {
+  width: min(100%, 860px);
+  min-height: 0;
+  margin: 0 auto;
+  padding: clamp(22px, 5vh, 56px) 0 14px;
+  align-items: center;
+  text-align: center;
+}
+.story h1 {
+  margin: 0 0 15px;
+  font-size: clamp(52px, 7.3vw, 100px);
+  line-height: 1.08;
+}
+.story-copy {
+  max-width: 610px;
+  margin: 0 auto;
+  font-size: clamp(14px, 1.25vw, 18px);
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 26px auto 0;
+  padding: 14px 22px;
+  min-height: 52px;
+  color: #fff;
+  background: linear-gradient(145deg, #4f9d69, #2e8052);
+  border: 1px solid #2b774d;
+  border-radius: 14px;
+  box-shadow: inset 2px 2px 4px #84c39499, inset -3px -4px 6px #1e653e, 5px 8px 15px #72a47c75;
+  font-weight: 800;
+  font-size: 14px;
+  transition: transform .2s, box-shadow .2s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: inset 2px 2px 4px #84c39499, inset -3px -4px 6px #1e653e, 6px 11px 18px #72a47c9c; }
+.hero-cta span { font-size: 20px; line-height: 1; }
+.hero-cta:focus-visible { outline: 3px solid #195c3c; outline-offset: 4px; }
+.landscape {
+  width: min(100%, 720px);
+  min-height: clamp(280px, 29vw, 360px);
+  margin: 48px auto 12px;
+}
+.story-footer { margin-top: 12px; justify-content: center; text-align: left; }
+.site-footer { margin-top: 20px; }
+@media (max-width: 850px) {
+  .story { padding-top: 32px; }
+  .story h1 { font-size: clamp(49px, 9vw, 72px); }
+  .story-copy { font-size: 15px; }
+  .landscape { margin-top: 42px; min-height: 280px; }
+  .story-footer { display: flex; }
+}
+@media (max-width: 520px) {
+  .site-header { margin-bottom: 10px; }
+  .story { padding-top: 32px; }
+  .story h1 { font-size: clamp(43px, 10.5vw, 56px); }
+  .story-copy { max-width: 410px; line-height: 1.7; }
+  .hero-cta { margin-top: 22px; }
+  .landscape { width: calc(100% - 14px); min-height: 250px; margin-top: 38px; }
+  .story-footer { margin-top: 20px; }
+}
